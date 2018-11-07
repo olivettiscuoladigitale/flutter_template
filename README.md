@@ -1,6 +1,13 @@
-# iana_mobile
+# FLUTTER TEMPLATE
 
-Iana Framework mobile
+a generic app template for flutter app
+
+- different environment (dev, prod etc) 
+- splash screen
+- intro slider
+- shared preference
+- scoped_model for realtime state management
+
 
 ## Getting Started
 

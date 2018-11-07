@@ -8,7 +8,7 @@ import 'package:iana_mobile/src/pages/spash.dart';
 
 /// application routes
 Map<String, WidgetBuilder> appRoutes = {
-  'home': (BuildContext context) => Home(),
-  "intro": (BuildContext context) => Intro(),
+  '/home': (BuildContext context) => Home(),
+  "/intro": (BuildContext context) => Intro(),
   "/": (BuildContext context) => Splash(),
 };

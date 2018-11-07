@@ -8,7 +8,13 @@ import 'package:iana_mobile/app_bootstrap.dart';
 void main() {
   final app = AppBootstrap().getApp();
 
-  AppConfig configuredApp = AppConfig(appName: 'IAna', child: app);
+  AppConfig configuredApp = AppConfig(
+      appName: 'IAna',
+      supportedLocales: [
+        const Locale('en', 'US'), // English
+        const Locale('it', 'IT'), // Italian
+      ],
+      child: app);
 
   runApp(configuredApp);
 }

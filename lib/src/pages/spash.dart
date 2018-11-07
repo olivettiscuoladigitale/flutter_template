@@ -1,13 +1,53 @@
-// Copyright 2018 Olivetti Scuola Digitale. All rights reserved.
+// Copyright 2018 Olivetti. All rights reserved.
 // Giorgio Modoni <modogio@gmail.com>
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:iana_mobile/app_config.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:iana_mobile/src/models/states/app_state_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+  AppConfig appConfig;
+
+  @override
+  void initState() {
+    super.initState();
+    onInitPlatform();
+  }
+
+  void onInitPlatform() async {
+    final appModel =
+        ScopedModel.of<AppStateModel>(context, rebuildOnChange: false);
+
+    // load all data shared_preference at start
+    await appModel.loadAllPref();
+
+    String nextRouteName = appModel.hasIntroSlider == true ? '/home' : '/intro';
+
+    startTime(nextRouteName);
+  }
+
+  void startTime(String routeName) async {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Duration duration = Duration(seconds: 1);
+      Timer(duration, () => navigationPage(routeName));
+    });
+  }
+
+  void navigationPage(String routeName) {
+    Navigator.pushReplacementNamed(context, routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final config = AppConfig.of(context);
+    appConfig = AppConfig.of(context);
 
     return Scaffold(
       body: Stack(
@@ -19,13 +59,20 @@ class Splash extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      /*
+              Expanded(flex: 2, child: Container(child: _logoNameTop())),
+              _loader(),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  _logoNameTop() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        /*
                       Container(
                           width: 100.0,
                           height: 100.0,
@@ -44,28 +91,19 @@ class Splash extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(top: 35.0),
                       ),*/
-                      Text(
-                        config.appName,
-                        style: TextStyle(
-                          fontFamily: 'Pacifico',
-                            color:
-                                Theme.of(context).primaryTextTheme.body1.color,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 58.0),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              _loader(context),
-            ],
-          )
-        ],
-      ),
+        Text(
+          appConfig.appName,
+          style: TextStyle(
+              fontFamily: 'Pacifico',
+              color: Theme.of(context).primaryTextTheme.body1.color,
+              fontWeight: FontWeight.bold,
+              fontSize: 58.0),
+        )
+      ],
     );
   }
 
-  _loader(BuildContext context) {
+  _loader() {
     return Expanded(
       flex: 1,
       child: Column(

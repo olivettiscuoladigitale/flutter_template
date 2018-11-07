@@ -1,8 +1,11 @@
-// Copyright 2018 Olivetti Scuola Digitale. All rights reserved.
+// Copyright 2018 Olivetti. All rights reserved.
 // Giorgio Modoni <modogio@gmail.com>
 
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
+import 'package:iana_mobile/src/models/states/app_state_model.dart';
+import 'package:scoped_model/scoped_model.dart';
+
 
 class Intro extends StatefulWidget {
   @override
@@ -11,12 +14,17 @@ class Intro extends StatefulWidget {
 
 class _IntroState extends State<Intro> {
   List<Slide> slides = new List();
+   AppStateModel appModel;
+
 
   @override
   void initState() {
     initSlides();
     super.initState();
+    appModel = ScopedModel.of<AppStateModel>(context, rebuildOnChange: false);
   }
+
+
 
   initSlides() {
     slides.add(
@@ -50,6 +58,7 @@ class _IntroState extends State<Intro> {
 
   void onDonePress() {
     // TODO: go to next screen
+    appModel.setHasIntroSlider(true);
     goToHome();
   }
 
@@ -60,7 +69,8 @@ class _IntroState extends State<Intro> {
   }
 
   void goToHome() {
-    Navigator.pushReplacementNamed(context, 'home');
+    appModel.setHasIntroSlider(true);
+    Navigator.pushReplacementNamed(context, '/home');
   }
 
   @override
