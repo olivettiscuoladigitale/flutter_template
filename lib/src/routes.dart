@@ -3,12 +3,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:iana_mobile/src/pages/home.dart';
-import 'package:iana_mobile/src/pages/intro.dart';
 import 'package:iana_mobile/src/pages/spash.dart';
+import 'package:iana_mobile/src/pages/slider_page/home_slider_page.dart';
 
 /// application routes
 Map<String, WidgetBuilder> appRoutes = {
   '/home': (BuildContext context) => Home(),
-  "/intro": (BuildContext context) => Intro(),
+  "/intro": (BuildContext context) => HomeSliderPage(),
   "/": (BuildContext context) => Splash(),
 };
