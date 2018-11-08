@@ -24,10 +24,18 @@ dependencies:
   scoped_model: ^0.3.0
   shared_preferences: ^0.4.3
   synchronized: ^1.5.3
+  flutter_launcher_icons: "^0.6.1"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#2196f3"
+  adaptive_icon_foreground: "assets/icon/icon.png"
 
 
 # For information on the generic Dart part of this file, see the
