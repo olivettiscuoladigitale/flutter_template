@@ -1,40 +1,15 @@
 import 'package:flutter/material.dart';
 
-final pages = [
-  new PageViewModel(
-      const Color(0xFF548CFF),
-      'assets/images/intro/intro_1.png',
-      'Visita il meglio',
-      'Vivi una fantastica avventura',
-      'assets/images/intro/intro_1.png'),
-  new PageViewModel(
-      const Color(0xFFE4534D),
-      'assets/images/intro/intro_1.png',
-      'Trova un punto di interesse',
-      'Trova una piazza o un monumento e scorpi il percorsi',
-      'assets/images/intro/intro_1.png'),
-  new PageViewModel(
-    const Color(0xFFFF682D),
-    'assets/images/intro/intro_1.png',
-    'Lasciati guidare',
-    'Prendi il percorso più vicino a te, e scopri l itinerario',
-    'assets/images/intro/intro_1.png',
-  ),
-];
-
 class Page extends StatelessWidget {
   final PageViewModel viewModel;
   final double percentVisible;
 
-  Page({
-    this.viewModel,
-    this.percentVisible = 1.0,
-  });
+  Page({this.viewModel, this.percentVisible = 1.0});
 
   @override
   Widget build(BuildContext context) {
     return new Container(
-      width: double.infinity,
+        width: double.infinity,
         color: viewModel.color,
         child: new Opacity(
           opacity: percentVisible,
@@ -60,7 +35,7 @@ class Page extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.white,
-                        fontFamily: 'FlamanteRoma',
+                       // fontFamily: 'FlamanteRoma',
                         fontSize: 34.0,
                       ),
                     ),
@@ -76,7 +51,7 @@ class Page extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.white,
-                        fontFamily: 'FlamanteRomaItalic',
+                       // fontFamily: 'FlamanteRomaItalic',
                         fontSize: 18.0,
                       ),
                     ),

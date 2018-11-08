@@ -3,7 +3,7 @@
 
 import 'package:iana_mobile/src/app.dart';
 import 'package:flutter/services.dart';
-import 'package:iana_mobile/src/models/states/app_state_model.dart';
+import 'src/models/states/app_state_model.dart';
 
 class AppBootstrap {
   App getApp() {

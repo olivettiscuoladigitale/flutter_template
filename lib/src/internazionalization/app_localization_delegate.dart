@@ -2,7 +2,7 @@
 // Giorgio Modoni <modogio@gmail.com>
 
 import 'package:flutter/material.dart';
-import 'package:iana_mobile/src/internazionalization/app_localization.dart';
+import 'app_localization.dart';
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();

@@ -1,3 +1,13 @@
 {
-  "splash_loading": "Loading.."
+  "splash_loading": "Loading..",
+  "intro_slide1_title": "Quis autem vel eum",
+  "intro_slide1_message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  "intro_slide2_title": "Neque porro quisquam",
+  "intro_slide2_message": "Nemo enim ipsam voluptatem quia voluptas",
+  "intro_slide3_title": "Ut enim ad minima",
+  "intro_slide3_message": "Quis autem vel eum iure reprehenderit qui in ea",
+  "intro_start": "START",
+  "settings_title": "SETTINGS",
+  "settings_list_intro_title":"Tutorial",
+  "settings_list_intro_message":"Show or hide tutorial in app start"
 }

@@ -3,10 +3,10 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:iana_mobile/app_config.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:iana_mobile/src/models/states/app_state_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+import '../../app_config.dart';
+import '../models/states/app_state_model.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -30,7 +30,7 @@ class _SplashState extends State<Splash> {
     await appModel.loadAllPref();
 
     String nextRouteName = appModel.hasIntroSlider == true ? '/home' : '/intro';
-
+    // startTime('/intro');
     startTime(nextRouteName);
   }
 

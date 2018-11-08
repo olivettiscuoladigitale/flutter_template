@@ -1,3 +1,13 @@
 {
-  "splash_loading": "Caricamento.."
+  "splash_loading": "Caricamento..",
+  "intro_slide1_title": "Quis autem vel eum",
+  "intro_slide1_message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  "intro_slide2_title": "Neque porro quisquam",
+  "intro_slide2_message": "Nemo enim ipsam voluptatem quia voluptas",
+  "intro_slide3_title": "Ut enim ad minima",
+  "intro_slide3_message": "Quis autem vel eum iure reprehenderit qui in ea",
+  "intro_start": "INIZIA",
+  "settings_title": "IMPOSTAZIONI",
+  "settings_list_intro_title": "Tutorial iniziale",
+  "settings_list_intro_message": "Mostra o salta il tutorial iniziale"
 }

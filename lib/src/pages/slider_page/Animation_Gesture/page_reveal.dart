@@ -1,16 +1,11 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class PageReveal extends StatelessWidget {
-
   final double revealPercent;
   final Widget child;
 
-  PageReveal({
-    this.revealPercent,
-    this.child
-  });
+  PageReveal({this.revealPercent, this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +16,13 @@ class PageReveal extends StatelessWidget {
   }
 }
 
-class CircleRevealClipper extends CustomClipper<Rect>{
-
+class CircleRevealClipper extends CustomClipper<Rect> {
   final double revealPercent;
 
-
-  CircleRevealClipper(
-    this.revealPercent
-  );
+  CircleRevealClipper(this.revealPercent);
 
   @override
   Rect getClip(Size size) {
-
     final epicenter = new Offset(size.width / 2, size.height * 0.9);
 
     double theta = atan(epicenter.dy / epicenter.dx);
@@ -41,7 +31,8 @@ class CircleRevealClipper extends CustomClipper<Rect>{
     final radius = distanceToCorner * revealPercent;
     final diameter = 2 * radius;
 
-    return new Rect.fromLTWH(epicenter.dx - radius, epicenter.dy - radius, diameter, diameter);
+    return new Rect.fromLTWH(
+        epicenter.dx - radius, epicenter.dy - radius, diameter, diameter);
   }
 
   @override
@@ -49,5 +40,4 @@ class CircleRevealClipper extends CustomClipper<Rect>{
     // TODO: implement shouldReclip
     return true;
   }
-
 }

@@ -2,7 +2,8 @@ import 'dart:ui' hide Image;
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 import 'pages.dart';
-import 'package:iana_mobile/src/models/states/app_state_model.dart';
+import '../../../models/states/app_state_model.dart';
+import '../../../internazionalization/app_localization.dart';
 
 class PagerIndicator extends StatelessWidget {
   final PagerIndicatorViewModel viewModel;
@@ -66,7 +67,7 @@ class PagerIndicator extends StatelessWidget {
           bottom: 8.0,
           right: 5.0,
           child: Container(
-            //  margin: const EdgeInsets.only(bottom: 0),
+              //  margin: const EdgeInsets.only(bottom: 0),
               alignment: Alignment.bottomCenter,
               child: FlatButton(
                   onPressed: () {
@@ -74,18 +75,20 @@ class PagerIndicator extends StatelessWidget {
 
                     Navigator.pushReplacementNamed(context, "/home");
                   },
-                  child: Row( children: <Widget>[
-                    Text('INIZIA', style: Theme.of(context).primaryTextTheme.button),
-
-                     IconTheme(
-                      data: new IconThemeData(color:Colors.white),
-                      child: Icon(Icons.navigate_next,
-                    ))
-                  ],)))),
+                  child: Row(
+                    children: <Widget>[
+                      Text(AppLocalizations.of(context).trans('intro_start'),
+                          style: Theme.of(context).primaryTextTheme.button),
+                      IconTheme(
+                          data: new IconThemeData(color: Colors.white),
+                          child: Icon(
+                            Icons.navigate_next,
+                          ))
+                    ],
+                  )))),
       new Column(
         children: <Widget>[
           Expanded(child: Container()),
-
           Transform(
             transform: Matrix4.translationValues(translation, 0.0, 0.0),
             child: Row(

@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:iana_mobile/src/resources/shared_pref_provider.dart';
+import '../../resources/shared_pref_provider.dart';
 
 class AppStateModel extends Model {
   SharedPrefProvider _sharedProvider = SharedPrefProvider();

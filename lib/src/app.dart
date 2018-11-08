@@ -3,13 +3,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:iana_mobile/app_config.dart';
-import 'package:iana_mobile/src/theme.dart';
-import 'package:iana_mobile/src/routes.dart';
-import 'package:iana_mobile/src/models/states/app_state_model.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:iana_mobile/src/internazionalization/app_localization_delegate.dart';
-import 'package:iana_mobile/src/utils/locale_resolution.dart';
+import '../app_config.dart';
+import 'theme.dart';
+import 'routes.dart';
+import 'models/states/app_state_model.dart';
+import 'internazionalization/app_localization_delegate.dart';
+import 'utils/locale_resolution.dart';
 
 class App extends StatelessWidget {
   final AppStateModel appStateModel;

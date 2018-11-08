@@ -7,15 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AppLocalizations {
-  AppLocalizations(this.locale);
-
   final Locale locale;
+  Map<String, String> _sentences;
+
+  AppLocalizations(this.locale);
 
   static AppLocalizations of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
-
-  Map<String, String> _sentences;
 
   Future<bool> load() async {
     String data = await rootBundle
@@ -30,8 +29,8 @@ class AppLocalizations {
     return true;
   }
 
+  /// translate a term or return the key
   String trans(String key) {
-    return this._sentences[key];
+    return this._sentences[key] ?? key;
   }
 }
-

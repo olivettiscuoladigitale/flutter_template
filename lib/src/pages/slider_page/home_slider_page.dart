@@ -4,6 +4,7 @@ import 'Animation_Gesture/page_dragger.dart';
 import 'Animation_Gesture/page_reveal.dart';
 import 'UI/pager_indicator.dart';
 import 'UI/pages.dart';
+import '../../internazionalization/app_localization.dart';
 
 class HomeSliderPage extends StatefulWidget {
   @override
@@ -14,13 +15,40 @@ class _HomeSliderPageState extends State<HomeSliderPage>
     with TickerProviderStateMixin {
   StreamController<SlideUpdate> slideUpdateStream;
   AnimatedPageDragger animatedPageDragger;
-
   int activeIndex = 0;
-
   SlideDirection slideDirection = SlideDirection.none;
   int nextPageIndex = 0;
-
   double slidePercent = 0.0;
+  List<PageViewModel> pages;
+
+  getPages() {
+    pages = [
+      new PageViewModel(
+          const Color(0xFF548CFF),
+          'assets/images/intro/intro_1.png',
+          AppLocalizations.of(context).trans('intro_slide1_title'),
+          AppLocalizations.of(context).trans('intro_slide1_message'),
+          'assets/images/intro/intro_1.png'),
+      new PageViewModel(
+          const Color(0xFFE4534D),
+          'assets/images/intro/intro_2.png',
+          AppLocalizations.of(context).trans('intro_slide2_title'),
+          AppLocalizations.of(context).trans('intro_slide2_message'),
+          'assets/images/intro/intro_2.png'),
+      new PageViewModel(
+        const Color(0xFFFF682D),
+        'assets/images/intro/intro_3.png',
+        AppLocalizations.of(context).trans('intro_slide3_title'),
+        AppLocalizations.of(context).trans('intro_slide3_message'),
+        'assets/images/intro/intro_3.png',
+      ),
+    ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -83,6 +111,8 @@ class _HomeSliderPageState extends State<HomeSliderPage>
 
   @override
   Widget build(BuildContext context) {
+    getPages();
+
     return new Scaffold(
       body: new Stack(
         children: [
